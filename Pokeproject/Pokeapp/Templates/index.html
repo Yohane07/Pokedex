@@ -1,2 +1,6 @@
-<h1>Hello !</h1>
-<p>{{ Oiseau }}</p>
+<h1>Noms des pokemons :</h1>
+<ul>
+    {% for result in results %}
+        <li>{{ result.name }}</li>
+    {% endfor %}
+</ul>
