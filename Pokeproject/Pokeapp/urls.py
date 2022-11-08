@@ -1,9 +1,12 @@
+from pickle import GET
 from django.urls import path
+from requests import get
 from . import views
 
 urlpatterns = [
     path('test/', views.test, name="test"),
-    path('index/', views.getPokemon, name="pokemon"),
+    path('pokemons/', views.getPokemons, name="pokemonsList"),
     path('index/', views.setLanguage, name="language"),
-    path('index/<id:id>/', views.getPokemonDetails(id=1), name="details"),
+    #path('pokemons/<id:id>/', views.getPokemonDetails(id=1), name="pokemonDetails"),
+    #path('pokemons/<int:id>/', views.getPokemonDetails(get, 1), name="pokemonDetails"),
 ]

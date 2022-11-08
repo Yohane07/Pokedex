@@ -13,17 +13,17 @@ def setLanguage(request):
         content_language = response_language.json()
         return render(request, 'index.html', content_language)
 
-def getPokemon(request):
+def getPokemons(request):
     response_pokemon = requests.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=151")
     if response_pokemon.status_code == 200:
         content_pokemon = response_pokemon.json()
-        return render(request, 'index.html', content_pokemon)
+        return render(request, 'pokemonsList.html', content_pokemon)
 
-def getPokemonDetails(request, id):
+#def getPokemonDetails(request, id):
     #id = self.kwargs['id']
-    response_details = requests.get("https://pokeapi.co/api/v2/pokemon/" + str(id))
-    if response_details.status_code == 200:
-        content_details = response_details.json()
-        return render(request, 'index.html', content_details)
+    #response_details = requests.get("https://pokeapi.co/api/v2/pokemon/" + str(id))
+    #if response_details.status_code == 200:
+        #content_details = response_details.json()
+        #return render(request, 'pokemonDetails.html', content_details)
     
-#getPokemonDetails(1)
+#getPokemonDetails(1, 1)
