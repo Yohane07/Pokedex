@@ -19,11 +19,12 @@ def getPokemons(request):
         content_pokemon = response_pokemon.json()
         return render(request, 'pokemonsList.html', content_pokemon)
 
-#def getPokemonDetails(request, id):
-    #id = self.kwargs['id']
-    #response_details = requests.get("https://pokeapi.co/api/v2/pokemon/" + str(id))
-    #if response_details.status_code == 200:
-        #content_details = response_details.json()
-        #return render(request, 'pokemonDetails.html', content_details)
-    
+def getPokemonDetails(request):
+    print("coucou")
+    print(getPokemons(request))
+    response_details = requests.get("https://pokeapi.co/api/v2/pokemon/1")
+    if response_details.status_code == 200:
+        content_details = response_details.json()
+        return render(request, 'pokemonDetails.html', content_details)
+
 #getPokemonDetails(1, 1)

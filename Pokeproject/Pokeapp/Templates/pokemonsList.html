@@ -1,7 +1,8 @@
 <h1 style="font-family: sans-serif; text-decoration: underline;">Noms des pokemons :</h1>
 <ul>
-    <!-- Voir pour mettre le path sur le name pour aller sur la page de détails du pokémon -->
+    <!-- Voir pour mettre le path sur le name pour aller sur la page de détails du pokémon 
+    a href="{{ result.url }}" -->
     {% for result in results %}
-        <li style="text-transform: capitalize; font-family: sans-serif;">{{ result.name }}</li>
+        <li style="text-transform: capitalize; font-family: sans-serif;"><a href="{% url 'pokemonDetails' %}">{{ result.name }}</a></li>
     {% endfor %}
 </ul>
