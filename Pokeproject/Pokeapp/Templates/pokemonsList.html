@@ -3,6 +3,6 @@
     <!-- Voir pour mettre le path sur le name pour aller sur la page de détails du pokémon 
     a href="{{ result.url }}" -->
     {% for result in results %}
-        <li style="text-transform: capitalize; font-family: sans-serif;"><a href="{% url 'pokemonDetails' %}">{{ result.name }}</a></li>
+        <li style="text-transform: capitalize; font-family: sans-serif;"><a href="{% url 'pokemonDetails' result.name %}">{{ result.name }}</a></li>
     {% endfor %}
 </ul>
