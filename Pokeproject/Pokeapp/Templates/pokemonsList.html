@@ -1,8 +1,66 @@
-<h1 style="font-family: sans-serif; text-decoration: underline;">Noms des pokemons :</h1>
-<ul>
-    <!-- Voir pour mettre le path sur le name pour aller sur la page de détails du pokémon 
-    a href="{{ result.url }}" -->
-    {% for result in results %}
-        <li style="text-transform: capitalize; font-family: sans-serif;"><a href="{% url 'pokemonDetails' %}">{{ result.name }}</a></li>
-    {% endfor %}
-</ul>
+<!doctype html>
+<html lang="fr">
+{% load static %}
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Pokedex | By Lucile Quentin Mamoune Yohane et Pierre</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="">
+                <img src="https://cdn.pixabay.com/photo/2020/09/22/13/41/pokedex-5593125_960_720.jpg" width="30" height="30" class="d-inline-block align-top" alt="pokedex_icon">
+                Pokédex
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="{% url 'pokemonsList' %}">Liste des pokémons</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="">Gestion des équipes</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0" method="post">
+                {% csrf_token %}
+                <input class="form-control mr-sm-2" type="text" name="pokemon" placeholder="Nom d'un pokémon..." aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+              </form>
+            </div>
+        </nav>
+        <!--Utiliser les "card decks" sur Bootstrap pour que ce soit plus joli et mettre 5 pokémons par ligne-->
+        <div class="mt-5 ml-5">
+            {% if number and name %}
+                <h3>
+                    Numéro: {{number}}
+                </h3>
+                <h3>
+                    Nom: {{name}}
+                </h3>
+                <h3>
+                    Taille: {{height}}
+                </h3>
+                <h3>
+                    Poids: {{weight}}
+                </h3>
+                <h3>
+                    Image:
+                </h3>
+    
+                <img src="{{sprite}}" alt="{{name}} sprite" style="width: 70px">
+            {% else %}
+            <!--Utiliser les "card decks" sur Bootstrap pour que ce soit plus joli et mettre 5 pokémons par ligne-->
+                <h1 style="text-decoration: underline;">Noms des pokemons :</h1>
+                <ul>
+                    {% for result in results %}
+                        <li style="text-transform: capitalize;"><a href="{% url 'pokemonDetails' result.name %}">{{ result.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </body>
+</html>
