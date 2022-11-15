@@ -31,7 +31,7 @@ def getPokemonDetails(request):
     
 #getPokemonDetails(1, 1)
 
-def accueil(request):
+def index(request):
     if request.method == 'POST':
         pokemon = request.POST['pokemon'].lower()
         pokemon = pokemon.replace('', '%20')
