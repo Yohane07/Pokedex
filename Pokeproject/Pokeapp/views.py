@@ -51,5 +51,3 @@ def search(request):
 
     #return render(request, 'index.html', data)
     return render(request, 'pokemonsList.html', data)
-
-#getPokemonDetails(1, 1)

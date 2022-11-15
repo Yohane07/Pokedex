@@ -32,6 +32,7 @@
               </form>
             </div>
         </nav>
+        <!--Utiliser les "card decks" sur Bootstrap pour que ce soit plus joli et mettre 5 pokémons par ligne-->
         <div class="mt-5 ml-5">
             {% if number and name %}
                 <h3>
@@ -52,10 +53,11 @@
     
                 <img src="{{sprite}}" alt="{{name}} sprite" style="width: 70px">
             {% else %}
-                <h1 style="font-family: sans-serif; text-decoration: underline;">Noms des pokemons :</h1>
+            <!--Utiliser les "card decks" sur Bootstrap pour que ce soit plus joli et mettre 5 pokémons par ligne-->
+                <h1 style="text-decoration: underline;">Noms des pokemons :</h1>
                 <ul>
                     {% for result in results %}
-                        <li style="text-transform: capitalize; font-family: sans-serif;"><a href="{% url 'pokemonDetails' result.name %}">{{ result.name }}</a></li>
+                        <li style="text-transform: capitalize;"><a href="{% url 'pokemonDetails' result.name %}">{{ result.name }}</a></li>
                     {% endfor %}
                 </ul>
             {% endif %}

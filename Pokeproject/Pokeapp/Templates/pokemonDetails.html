@@ -33,9 +33,26 @@
             </div>
         </nav>
         <div class="mt-5 ml-5">
-            <h1 style="text-decoration: underline;">Le pokemon :</h1>
+            <!--Utiliser les "card decks" sur Bootstrap pour que ce soit plus joli et mettre 5 pokémons par ligne-->
+            <h1 style="text-transform: capitalize; text-decoration: underline;">{{ name }} :</h1>
             <ul>
-                <li style="text-transform: capitalize; font-family: sans-serif;">Poids : {{ weight }}</li>
+                <li style="text-transform: capitalize;">Id : {{ id }}</li>
+                <li style="text-transform: capitalize;">Numéro (ordre) : {{ order }}</li>
+                <li style="text-transform: capitalize;">Taille : {{ height }}</li>
+                <li style="text-transform: capitalize;">Poids : {{ weight }}</li>
+                <li style="text-transform: capitalize;">Types :
+                <!--Voir pour traduire les types en français (dans la doc de l'API)-->
+                {% if types|length > 1 %}
+                    {% for type in types %}
+                    <ul><li style="text-transform: capitalize;">{{ type.type.name}}</li></ul>
+                    {% endfor %}
+                {% elif types|length == 1 %}
+                    {{ type.type.name }}
+                {% else %}
+                    pas de type
+                {% endif %}
+                </li>
+                <img src="{{sprites.front_default}}" alt="{{name}} sprite" style="width: 150px">
             </ul>
         </div>
     </body>
