@@ -4,7 +4,6 @@ from requests import get
 from . import views
 
 urlpatterns = [
-    path('test/', views.test, name="test"),
     path('pokemons/', views.getPokemons, name="pokemonsList"),
     path('index/', views.setLanguage, name="language"),
     path('pokemons/<str:name>/', views.getPokemonDetails, name="pokemonDetails"),
