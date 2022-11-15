@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+{% load static %}
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Pokedex | By Lucile Quentin Mamoune Yohane et Pierre</title>
+</head>
+<body>
+	<h2>Voyons voir</h2>
+	<img src="" class="image" style="width: 100px;" alt="">
+
+	<form method="post">
+		{% csrf_token %}
+		<label>
+			<input type="text" name="pokemon" placeholder="Entrer le nom du Pokemon...">
+		</label>
+		<button type="submit"> Rechercher</button>
+	</form>
+	<div>
+		{% if number and name %}
+			<h3>
+				Numéro: {{number}}
+			</h3>
+			<h3>
+				Nom: {{name}}
+			</h3>
+			<h3>
+				Taille: {{height}}
+			</h3>
+			<h3>
+				Default Sprite:
+			</h3>
+			<img src="{{sprite}}" alt="{{name}} sprite" style="width: 70px">
+		{% endif %}
+	</div>
+</body>
+
+</html>
