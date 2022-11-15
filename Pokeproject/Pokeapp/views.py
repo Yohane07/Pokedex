@@ -1,14 +1,9 @@
 from django.shortcuts import HttpResponse, render
+import requests
 import urllib.request
 import json
 
 # Create your views here.
-def test(request):
-    text = {"Oiseau":"pigeon"}
-    return render(request, 'test.html', text)
-
-import requests
-
 def setLanguage(request):
     response_language = requests.get("https://pokeapi.co/api/v2/language/5/")
     if response_language.status_code == 200:
