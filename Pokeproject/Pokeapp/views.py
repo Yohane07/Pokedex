@@ -32,12 +32,10 @@ def getPokemonDetails(request, name):
     
 def search(request):
     if request.method == 'POST':
-        print('ccccccccc')
         pokemon = request.POST['pokemon'].lower()
         pokemon = pokemon.replace('%20', '')
         url_pokeapi = urllib.request.Request(f'https://pokeapi.co/api/v2/pokemon/{pokemon}/')
         url_pokeapi.add_header('User-Agent', 'charmander')
-        print(url_pokeapi)
 
         source = urllib.request.urlopen(url_pokeapi).read()
 
