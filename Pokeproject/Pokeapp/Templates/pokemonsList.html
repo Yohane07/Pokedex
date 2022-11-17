@@ -59,10 +59,12 @@
 
 
                 <h1 style="text-decoration: underline;">Noms des pokemons :</h1>
-                <ul>
+                <ul class="list-unstyled">
+                    <div class="container text-center">
                     {% for result in results %}
                         <li class="text-capitalize"><a href="{% url 'pokemonDetails' result.name %}">{{ result.name }}</a></li>
                     {% endfor %}
+                    </div>
                 </ul>
             {% endif %}
         </div>
