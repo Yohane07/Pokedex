@@ -49,5 +49,5 @@ def search(request):
     else:
         data = {}
 
-    #return render(request, 'index.html', data)
-    return render(request, 'pokemonsList.html', data)
+    return render(request, 'index.html', data)
+    #return render(request, 'pokemonsList.html', data)
