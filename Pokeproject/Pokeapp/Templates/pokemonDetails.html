@@ -37,37 +37,37 @@
         <div class="mt-5 ms-5">
             <div class="container text-center">
                 <h1 style="text-transform: capitalize; text-decoration: underline;">{{ name }} :</h1>            
-                  <div class="row">
-                    <div class="col">
-                      <a {% if id == 1 %} class="disabled" href="" {% endif %} href="{% url 'pokemonDetails' id|add:"-1" %}"><button type="button" class="btn btn-primary {% if id == 1 %} disabled {% endif %}">Pokémon précédent</button></a>
-                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a {% if id == 1 %} class="disabled" href="" {% endif %} href="{% url 'pokemonDetails' id|add:"-1" %}"><button type="button" class="btn btn-primary {% if id == 1 %} disabled {% endif %}">Pokémon précédent</button></a>
+                        </div>
                     <div class="col-6">
-                      <ul class="list-unstyled">
-                        <li>Numéro (ordre) : {{ order }}</li>
-                        <li>Taille : {{ height }} dm</li>
-                        <li>Poids : {{ weight }} hg</li>
-                        <li class="text-capitalize">Types :
-                        <!--Voir pour traduire les types en français (dans la doc de l'API)-->
-                        {% if types|length > 1 %}
-                            {% for type in types %}
-                            <ul class="list-unstyled"><li class="text-capitalize">{{ type.type.name}}</li></ul>
-                            {% endfor %}
-                        {% elif types|length == 1 %}
-                            {% for type in types %}
-                                {{ type.type.name}}
-                            {% endfor %}
-                        {% else %}
-                            pas de type
-                        {% endif %}
-                        </li>
-                        <img src="{{sprites.front_default}}" alt="{{name}} sprite" style="width: 150px">
-                      </ul>
+                        <ul class="list-unstyled">
+                            <li>Numéro (ordre) : {{ order }}</li>
+                            <li>Taille : {{ height }} dm</li>
+                            <li>Poids : {{ weight }} hg</li>
+                            <li class="text-capitalize">Types :
+                            <!--Voir pour traduire les types en français (dans la doc de l'API)-->
+                            {% if types|length > 1 %}
+                                {% for type in types %}
+                                <ul class="list-unstyled"><li class="text-capitalize">{{ type.type.name}}</li></ul>
+                                {% endfor %}
+                            {% elif types|length == 1 %}
+                                {% for type in types %}
+                                    {{ type.type.name}}
+                                {% endfor %}
+                            {% else %}
+                                pas de type
+                            {% endif %}
+                            </li>
+                            <img src="{{sprites.front_default}}" alt="{{name}} sprite" style="width: 150px">
+                        </ul>
                     </div>
                     <div class="col">
                       <a {% if id == 151 %} class="disabled" href="" {% endif %} href="{% url 'pokemonDetails' id|add:"1" %}"><button type="button" class="btn btn-primary {% if id == 151 %} disabled {% endif %}">Pokémon suivant</button></a>
                     </div>
-                  </div>
-              </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
