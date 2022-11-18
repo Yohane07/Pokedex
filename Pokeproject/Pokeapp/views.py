@@ -27,7 +27,7 @@ def search(request):
         pokemon = request.POST['pokemon'].lower()
         pokemon = pokemon.replace('%20', '')
         url_pokeapi = urllib.request.Request(f'https://pokeapi.co/api/v2/pokemon/{pokemon}/')
-        url_pokeapi.add_header('User-Agent', 'charmander') # mettre pokemon à la place de charmander
+        url_pokeapi.add_header('User-Agent', 'pokemon') # mettre pokemon à la place de charmander
 
         source = urllib.request.urlopen(url_pokeapi).read()
 
@@ -48,3 +48,5 @@ def search(request):
 
     return render(request, 'index.html', data)
     #return render(request, 'pokemonsList.html', data)
+    
+    
