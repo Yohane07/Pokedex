@@ -10,10 +10,22 @@ def setLanguage(request):
         content_language = response_language.json()
         return render(request, 'index.html', content_language)
 
+def getTypesByName(name):
+    response_details = requests.get("https://pokeapi.co/api/v2/pokemon/" + name)
+    if response_details.status_code == 200:
+        content_details = response_details.json()
+        type_name = []
+        for type in content_details['types']:
+            type_name += [type['type']['name']]
+    return type_name
+
 def getPokemons(request):
     response_pokemon = requests.get("https://pokeapi.co/api/v2/pokemon?offset=0&limit=151")
     if response_pokemon.status_code == 200:
         content_pokemon = response_pokemon.json()
+        for pokemon in content_pokemon['results']:
+            name = pokemon['name']
+            pokemon['types'] = getTypesByName(name)
         return render(request, 'pokemonsList.html', content_pokemon)
 
 def getPokemonEquipe(request):
