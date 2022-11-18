@@ -13,7 +13,7 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="">
+                <a class="navbar-brand" href="{% url 'pokemonEquipe' %}">
                     <img src="https://cdn.pixabay.com/photo/2020/09/22/13/41/pokedex-5593125_960_720.jpg" width="30" height="30" class="d-inline-block align-top" alt="pokedex_icon">
                     Pokédex
                 </a>
@@ -66,6 +66,7 @@
                     <div class="col">
                       <a {% if id == 151 %} class="disabled" href="" {% endif %} href="{% url 'pokemonDetails' id|add:"1" %}"><button type="button" class="btn btn-primary {% if id == 151 %} disabled {% endif %}">Pokémon suivant</button></a>
                     </div>
+                    <button type="button" style="width:100%" class="btn btn-outline-success">Ajouter</button>
                   </div>
               </div>
         </div>
