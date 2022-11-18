@@ -16,6 +16,9 @@ def getPokemons(request):
         content_pokemon = response_pokemon.json()
         return render(request, 'pokemonsList.html', content_pokemon)
 
+def getPokemonEquipe(request):
+    return render(request,'pokemonEquipe.html')
+
 def getPokemonDetails(request, name):
     response_details = requests.get("https://pokeapi.co/api/v2/pokemon/" + name)
     if response_details.status_code == 200:
