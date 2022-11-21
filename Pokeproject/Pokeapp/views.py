@@ -60,5 +60,5 @@ def search(request):
         }
     else:
         data = {}
-        return render(request, 'search.html', data)
+    return render(request, 'search.html', data)
     
