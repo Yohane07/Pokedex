@@ -33,9 +33,11 @@ def getPokemonDetails(request, name):
 
 def addPokemonEquipe(request, name):
     if equipePokemon in locals():
+        equipePokemon.append(name)
+    else:
         equipePokemon  = []
-    equipePokemon.append(name)
-    return render(request, 'addPokemonEquipe.html', equipePokemon)
+        equipePokemon.append(name)
+    return render(request, 'pokemonEquipe.html', equipePokemon)
     
 def search(request):
     if request.method == 'POST':
@@ -47,14 +49,13 @@ def search(request):
         source = urllib.request.urlopen(url_pokeapi).read()
 
         list_of_data = json.loads(source)
-        print(list_of_data['types'])
+        
         data = {
             "id": str(list_of_data['id']),
             "name": str(list_of_data['name']),
             "order": str(list_of_data['order']),
             "height": str(list_of_data['height']),
             "weight":str(list_of_data['weight']),
-            "types":str(list_of_data['types']),
             "sprite": str(list_of_data['sprites']['other']['dream_world']['front_default']),
         }
     else:
