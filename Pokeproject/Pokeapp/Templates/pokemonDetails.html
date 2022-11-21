@@ -1,38 +1,39 @@
-{% extends 'index.html' %}
+{% extends 'header.html' %}
 {% block content %}
-        <div class="mt-5 ms-5">
-            <div class="container text-center">
-                  <div class="row align-items-end">
-                    <div class="col">
-                        <a {% if id == 1 %} class="disabled" href="" {% endif %} href="{% url 'pokemonDetails' id|add:"-1" %}"><button type="button" class="btn btn-primary {% if id == 1 %} disabled {% endif %}">Pokémon précédent</button></a>
-                    </div>
-                    <div class="col justify-content-center">
-                      <div class="card" style="width: 18rem;">
-                        <img src="{{sprites.other.dream_world.front_default}}" alt="{{name}} sprite" class="card-img-top p-1" >
+    <div class="mt-5 ms-5">
+        <div class="container text-center">
+            <div class="row align-items-end">
+                <div class="col">
+                    <a {% if id == 1 %} class="disabled" href="" {% endif %} href="{% url 'pokemonDetails' id|add:"-1" %}"><button type="button" class="btn btn-primary {% if id == 1 %} disabled {% endif %}">Pokémon précédent</button></a>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
                         <div class="card-body">
-                          <h3 class="card-title text-capitalize fw-bold">{{ name }}</h3>
-                          <p class="card-text">Numéro (ordre) : {{ order }}</p>
-                          <p class="card-text">Taille : {{ height }} dm</p>
-                          <p class="card-text">Poids : {{ weight }} hg</p>
-                          <p class="card-text">Types :</p>
-                          {% if types|length > 1 %}
-                              {% for type in types %}
-                              <p class="card-text">{{ type.type.name}}</p>
-                                  {% endfor %}
-                          {% elif types|length == 1 %}
-                                  {% for type in types %}
-                                      {{ type.type.name}}
-                                  {% endfor %}
+                            <img src="{{sprites.other.dream_world.front_default}}" alt="{{name}} sprite" class="card-img-top p-1" >
+                            <h3 class="card-title text-capitalize fw-bold">{{ name }}</h3>
+                            <p class="card-text">Numéro (ordre) : {{ order }}</p>
+                            <p class="card-text">Taille : {{ height }} dm</p>
+                            <p class="card-text">Poids : {{ weight }} hg</p>
+                            <p class="card-text">Types :</p>
+                            {% if types|length > 1 %}
+                                {% for type in types %}
+                                    <p class="card-text">{{ type.type.name }}</p>
+                                {% endfor %}
+                            {% elif types|length == 1 %}
+                                    {% for type in types %}
+                                        {{ type.type.name }}
+                                    {% endfor %}
                             {% else %}
                                 pas de type
-                            {% endif %}                      
+                            {% endif %}
+                            <button type="button" style="width:100%" class="btn btn-outline-success">Ajouter</button>                      
                         </div>
                     </div>
-                    <div class="col">
-                        <a {% if id == 151 %} class="disabled" href="" {% endif %} href="{% url 'pokemonDetails' id|add:"1" %}"><button type="button" class="btn btn-primary {% if id == 151 %} disabled {% endif %}">Pokémon suivant</button></a>
-                    </div>
-                    <button type="button" style="width:100%" class="btn btn-outline-success">Ajouter</button>
-                  </div>
-              </div>
+                </div>
+                <div class="col">
+                    <a {% if id == 151 %} class="disabled" href="" {% endif %} href="{% url 'pokemonDetails' id|add:"1" %}"><button type="button" class="btn btn-primary {% if id == 151 %} disabled {% endif %}">Pokémon suivant</button></a>
+                </div>
+            </div>
         </div>
+    </div>
 {% endblock %}
