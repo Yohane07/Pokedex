@@ -4,26 +4,14 @@
 		<div class="mt-5 ms-5">
             <div class="container text-center">
                 <h1 style="text-transform: capitalize; text-decoration: underline;">{{ name }} :</h1>          
-				<div class="col justify-content-center">
+				<div class="d-flex justify-content-center">
 					<div class="card" style="width: 18rem">
 						<div class="card-body">
 							<img src="{{sprite}}" alt="{{name}} sprite" class="card-img-top p-1">
 							<h3 class="card-title text-capitalize fw-bold">{{ name }}</h3>
 							<p class="card-text">Numéro (ordre) : {{ order }}</p>
 							<p class="card-text">Taille : {{ height }} dm</p>
-							<p class="card-text">Poids : {{ weight }} hg</p>
-							<p class="card-text">Types :</p>
-							{% if types|length > 1 %}
-								{% for type in types %}
-									<p class="card-text">{{ type.type.name }}</p>
-								{% endfor %}
-							{% elif types|length == 1 %}
-									{% for type in types %}
-										{{ type.type.name }}
-									{% endfor %}
-								{% else %}
-									pas de type
-								{% endif %}                      
+							<p class="card-text">Poids : {{ weight }} hg</p>                    
 						</div>
 					</div>
 				</div>
