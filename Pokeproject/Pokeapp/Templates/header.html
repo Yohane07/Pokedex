@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="fr">
 {% load static %}
-
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,10 +18,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                       <li class="nav-item">
-                          <a class="nav-link active" aria-current="page" href="{% url 'pokemonDetails.views.id'  %}">Liste des pokémons</a>
+                          <a class="nav-link active" aria-current="page" href="{% url 'pokemonsList' %}">Liste des pokémons</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="">Gestion des équipes</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'pokemonEquipe' %}">Gestion des équipes</a>
                       </li>
                     </ul>
                     <form class="d-flex" method="post">
@@ -33,34 +32,7 @@
                 </div>
             </div>
         </nav>
-        <!--Utiliser les "card decks" sur Bootstrap pour que ce soit plus joli et mettre 5 pokémons par ligne-->
-        <div class="mt-5 ml-5">
-            {% if number and name %}
-                <h3>
-                    Numéro: {{number}}
-                </h3>
-                <h3>
-                    Nom: {{name}}
-                </h3>
-                <h3>
-                    Taille: {{height}}
-                </h3>
-                <h3>
-                    Poids: {{weight}}
-                </h3>
-                <h3>
-                    Image:
-                </h3>
-    
-                <img src="{{sprite}}" alt="{{name}} sprite" style="width: 70px">
-            {% else %}
-               
-          {% endif %}
-        </div>
-
-        {% block content%}
-
+        {% block content %}
         {% endblock %}
-
     </body>
 </html>
