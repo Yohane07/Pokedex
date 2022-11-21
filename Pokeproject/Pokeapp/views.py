@@ -24,6 +24,14 @@ def getPokemonDetails(request, name):
     if response_details.status_code == 200:
         content_details = response_details.json()
         return render(request, 'pokemonDetails.html', content_details)
+
+def addPokemonEquipe(request, name):
+    if equipePokemon in locals():
+        equipePokemon  = []
+    equipePokemon.append(name)
+    return render(request, 'addPokemonEquipe.html', equipePokemon)
+
+
     
 def search(request):
     if request.method == 'POST':

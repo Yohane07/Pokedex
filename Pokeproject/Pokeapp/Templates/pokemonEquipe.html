@@ -12,7 +12,7 @@
 <body style="background-color:#44546F">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="">
+            <a class="navbar-brand" href="{% url 'pokemonsList' %}">
                 <img src="https://cdn.pixabay.com/photo/2020/09/22/13/41/pokedex-5593125_960_720.jpg" width="30" height="30" class="d-inline-block align-top" alt="pokedex_icon">
                 Pokédex
             </a>
@@ -22,7 +22,7 @@
                     <a class="nav-link active" aria-current="page" href="{% url 'pokemonsList' %}">Liste des pokémons</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="">Gestion des équipes</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'pokemonEquipe' %}">Gestion des équipes</a>
                   </li>
                 </ul>
                 <form class="d-flex" method="post">
