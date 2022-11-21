@@ -4,12 +4,6 @@ import urllib.request
 import json
 
 # Create your views here.
-def setLanguage(request):
-    response_language = requests.get("https://pokeapi.co/api/v2/language/5/")
-    if response_language.status_code == 200:
-        content_language = response_language.json()
-        return render(request, 'index.html', content_language)
-
 def getTypesByName(name):
     response_details = requests.get("https://pokeapi.co/api/v2/pokemon/" + name)
     if response_details.status_code == 200:
@@ -36,6 +30,14 @@ def getPokemonDetails(request, name):
     if response_details.status_code == 200:
         content_details = response_details.json()
         return render(request, 'pokemonDetails.html', content_details)
+
+def addPokemonEquipe(request, name):
+    if equipePokemon in locals():
+        equipePokemon  = []
+    equipePokemon.append(name)
+    return render(request, 'addPokemonEquipe.html', equipePokemon)
+
+
     
 def search(request):
     if request.method == 'POST':
