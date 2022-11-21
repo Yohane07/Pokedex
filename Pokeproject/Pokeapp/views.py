@@ -41,7 +41,7 @@ def search(request):
     if request.method == 'POST':
         pokemon = request.POST['pokemon'].lower()
         pokemon = pokemon.replace('%20', '')
-        url_pokeapi = urllib.request.Request(f'https://pokeapi.co/api/v2/pokemon/{pokemon}/')
+        url_pokeapi = urllib.request.Request(f"https://pokeapi.co/api/v2/pokemon/{pokemon}/")
         url_pokeapi.add_header('User-Agent', 'pokemon') # mettre pokemon à la place de charmander
 
         source = urllib.request.urlopen(url_pokeapi).read()
@@ -53,7 +53,7 @@ def search(request):
             "name": str(list_of_data['name']),
             "height": str(list_of_data['height']),
             "weight":str(list_of_data['weight']),
-            "sprite": str(list_of_data['sprites']['front_default']),
+            "sprite": str(list_of_data['sprites']['other']['dream_world']['front_default']),
         }
 
         print(data)
@@ -64,4 +64,13 @@ def search(request):
     return render(request, 'index.html', data)
     #return render(request, 'pokemonsList.html', data)
     
+    
+# def rechercher(request, name):
+#     response_details = requests.get("https://pokeapi.co/api/v2/pokemon/" + name)
+#     if request.method == 'POST':
+#          if response_details.status_code == 200:
+#             pokemonData = response_details.json()
+#             return render(request, 'base.html', pokemonData)
+
+#     #return render(request, 'pokemonsList.html', data)
     

@@ -9,5 +9,6 @@ urlpatterns = [
     path('pokemons/<str:name>/', views.getPokemonDetails, name="pokemonDetails"),
     path('', views.search, name="search"),
     path('pokemonEquipe/', views.getPokemonEquipe, name="pokemonEquipe"),
+    # path('base/', views.rechercher, name="searchPokemon2"),
     #path('', views.search, name="searchPokemon2"),
 ]
